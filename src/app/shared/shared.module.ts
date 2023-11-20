@@ -8,13 +8,15 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SelectComponent } from './components/select/select.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     ReactiveFormsModule,
     CommonModule,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SelectComponent
   ]
 })
 export class SharedModule { }
