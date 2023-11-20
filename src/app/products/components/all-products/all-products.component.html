@@ -1,1 +1,26 @@
-<p>all-products works!</p>
+<div class="box mt-5">
+    <div class="m-2 w-25">
+        <label class='my-2'>Categories :</label>
+        <select class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-12" *ngFor="let item of products">
+            <div class="item">
+                <img src="{{item.image}}" alt="">
+                <div class="body">
+                    <h4>{{item.title}}</h4>
+                    <p>{{item.description}}</p>
+                </div>
+                <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
+                    <button class="btn btn-success">Add to cart</button>
+                    <span>{{item.price}} L.E</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
