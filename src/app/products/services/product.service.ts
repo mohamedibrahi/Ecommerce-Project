@@ -13,4 +13,12 @@ export class ProductService {
   getAllProducts() :Observable<any> {
     return this.http.get(environment.baseUrl + 'products');
   }
+
+  getAllCategories(){
+    return this.http.get(environment.baseUrl + 'products/categories');
+  }
+
+  getProductsByCategory(keyword: string){
+    return this.http.get(environment.baseUrl + 'products/category/'+keyword);
+  }
 }
