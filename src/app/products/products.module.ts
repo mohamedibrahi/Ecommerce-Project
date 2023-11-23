@@ -15,7 +15,7 @@ import { ProductComponent } from './components/product/product.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
   ],
   schemas:[]
 })

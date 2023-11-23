@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AllProductsComponent implements OnInit {
   products: any[];
   categories: any[];
-  loading:boolean = false;
+  loading: boolean = false;
+  cartProduct: any[] = [];
   constructor(private service: ProductService, private toasrtService: ToastrService) {
     this.products = [];
     this.categories = [];
@@ -69,7 +70,7 @@ export class AllProductsComponent implements OnInit {
   filterCategory(event: any) {
     let value = event.target.value;
     (value == "all") ? this.getProducts() : this.getProductsCategory(value);
-    
+
   }
   getProductsCategory(keyword: string) {
     this.loading = true;
@@ -77,5 +78,30 @@ export class AllProductsComponent implements OnInit {
       this.loading = false;
       this.products = res
     })
+  }
+
+  addToCart(event: any) {
+    //JSON.stringify() // Send date
+    //JSON.parse() // Recieved data
+    if("cart" in localStorage) {
+      this.cartProduct = JSON.parse(localStorage.getItem("cart")!);
+      let exist = this.cartProduct.find(item => item.item.id == event.item.id);
+      if(exist) {
+        this.toasrtService.error("Product is already exist", '', {
+          disableTimeOut: false,
+          titleClass: "toastr_title",
+          messageClass: "toastr_message",
+          timeOut: 5000,
+          closeButton: true,
+        })
+      }else {
+        this.cartProduct.push(event);
+        localStorage.setItem("cart", JSON.stringify(this.cartProduct));
+      }
+    } else {
+      this.cartProduct.push(event);
+      localStorage.setItem("cart", JSON.stringify(this.cartProduct));
+    }
+
   }
 }
