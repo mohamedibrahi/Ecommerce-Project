@@ -14,6 +14,8 @@ import { CartsModule } from './carts/carts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ProductsModule,
+    CartsModule,
     SharedModule,
   ],
   providers: [],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { Product } from '../../models/Product';
 
 @Component({
   selector: 'app-all-products',
@@ -8,8 +9,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./all-products.component.scss']
 })
 export class AllProductsComponent implements OnInit {
-  products: any[];
-  categories: any[];
+  products: Product[];
+  categories: string[];
   loading: boolean = false;
   cartProduct: any[] = [];
   constructor(private service: ProductService, private toasrtService: ToastrService) {
